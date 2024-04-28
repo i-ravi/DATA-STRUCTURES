@@ -32,6 +32,23 @@ public class N_QueenProblem {
         return;
     }
 
+    private boolean isSafe(int[][] board, int row, int col) {
+    
+        for (int i=0;i<col;i++){
+            if (board[row][i] == 1) return false;
+        }
+        
+        for (int i=row,j=col;i>=0 && j>=0;i--,j--){
+            if (board[i][j]==1) return false;
+        }
+        
+        for (int i=row,j=col; j>=0 && i<N ;i++,j--){
+            if (board[i][j]==1) return false;
+        }
+        
+        return true;
+    }
+    
     private boolean solveNQUtil(int[][] board, int col) {
         if (col>=N) return true;
         
@@ -53,23 +70,6 @@ public class N_QueenProblem {
             }
             System.out.println("");
         }
-    }
-
-    private boolean isSafe(int[][] board, int row, int col) {
-    
-        for (int i=0;i<col;i++){
-            if (board[row][i] == 1) return false;
-        }
-        
-        for (int i=row,j=col;i>=0 && j>=0;i--,j--){
-            if (board[i][j]==1) return false;
-        }
-        
-        for (int i=row,j=col; j>=0 && i<N ;i++,j--){
-            if (board[i][j]==1) return false;
-        }
-        
-        return true;
     }
     
 }
